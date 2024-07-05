@@ -8,7 +8,7 @@ function subtract(x,y) {
 }
 
 function multiply(x,y) {
-    return Number(x*y).toPrecision(4);
+    return Number(x*y);
 }
 
 function divide(x,y) {
@@ -85,8 +85,10 @@ operators.forEach((op) => {
         }
         if (secondStatus === true) {
             first = operate(Number(first), Number(second), operator);
+            display.textContent = `${first}${op.id}`;
             second = "";
-            display.textContent = `${operate(Number(first), Number(second), operator)}${op.id}`;
+            operatorStatus = true;
+            decimalStatus = false;
         }
     });
 });
