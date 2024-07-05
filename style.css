@@ -1,0 +1,46 @@
+:root {
+  --calculator-width: 200px;
+}
+
+* {
+  margin: 0;
+  padding: 0
+}
+
+
+.calculator {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: var(--calculator-width);
+  height: 100%;
+}
+
+.row > button {
+  height: calc(var(--calculator-width)/5);
+  flex: 1 0 0px;
+}
+
+.display {
+  border: 1px solid black;
+  font-size: 20px;
+  text-align: right;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.row > .zero,
+.row > .ac {
+  flex: 2 1 auto;
+}
+
+.row {
+  display: flex;
+}
