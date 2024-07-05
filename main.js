@@ -25,6 +25,7 @@ let operatorStatus = false;
 let firstStatus = false;
 let secondStatus = false;
 let decimalStatus = false;
+let signStatus = false;
 
 // Calculator operation
 function operate(first, second, operator) {
@@ -52,6 +53,7 @@ const equals = document.querySelector(".equals");
 const display = document.querySelector(".display");
 const clear = document.querySelector(".ac");
 const decimal = document.querySelector(".decimal");
+const sign = document.querySelector(".sign");
 
 
 buttons.forEach((button) => {
@@ -98,6 +100,7 @@ equals.addEventListener("click", () => {
         secondStatus = false;
         operatorStatus = false;
         decimalStatus = false;
+        signStatus = false;
         display.textContent = "000000.0000";
     } else {
         display.textContent = operate(Number(first), Number(second), operator);
@@ -107,6 +110,7 @@ equals.addEventListener("click", () => {
         secondStatus = false;
         operatorStatus = false;
         decimalStatus = false;
+        signStatus = false;
     }
 })
 
@@ -119,6 +123,7 @@ clear.addEventListener("click", () => {
     secondStatus = false;
     operatorStatus = false;
     decimalStatus = false;
+    signStatus = false;
 });
 
 decimal.addEventListener("click", () => {
@@ -131,5 +136,19 @@ decimal.addEventListener("click", () => {
         display.textContent += "."; 
         second += "."
         decimalStatus = true;
+    }
+});
+
+sign.addEventListener("click", () => {
+    if (signStatus === false) {
+        if (secondStatus === false) {
+            first = "-" + first;
+            display.textContent = `${first}${operator}`
+            signStatus = true;
+        } else {
+            second = "-" + second;
+            display.textContent = `${first}${operator}${second}`
+            signStatus = true;
+        }
     }
 });
